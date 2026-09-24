@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roteiros de Prospecção | Inframe Instax</title>
+<meta name="description" content="Três abordagens prontas para WhatsApp, Direct e resposta de stories, para apresentar a experiência Inframe a noivas selecionadas para produção de portfólio.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lato:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#0D0D0D; --ink2:#1E1A15; --cream:#FAF7F2; --paper:#FFFFFF;
+  --gold:#C9A458; --gold-deep:#A8823A; --beige:#F0E8D8; --line:#E6DDCC;
+  --text:#2B2620; --muted:#6F6556; --on-dark:#EFE9DE; --on-dark-muted:#B9B0A1;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--text);font:400 16px/1.65 'Lato',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px}
+.eyebrow{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700}
+
+/* capa */
+.cover{background:var(--ink);color:var(--on-dark);padding-block:calc(56px + env(safe-area-inset-top,0px)) 60px}
+.cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:clamp(2.3rem,7vw,3.6rem);line-height:1.05;margin:18px 0 22px;color:#F6F1E7;text-wrap:balance}
+.cover .rule{width:80px;height:2px;background:var(--gold);margin-bottom:24px}
+.cover p{color:var(--on-dark-muted);max-width:560px;margin:0 0 30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:10px;padding:13px 20px;font:700 .95rem 'Lato',sans-serif;text-decoration:none;cursor:pointer;border:0}
+.btn-gold{background:var(--gold);color:#1B1408}
+.btn-gold:hover{background:#D6B26A}
+.btn-ghost{background:transparent;color:var(--on-dark);border:1px solid rgba(239,233,222,.28)}
+.btn-ghost:hover{border-color:var(--gold);color:#fff}
+.btn:focus-visible,.copy:focus-visible,.toc a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+
+/* sumário */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.toc a{font-size:.85rem;color:var(--on-dark-muted);text-decoration:none;border:1px solid rgba(239,233,222,.16);border-radius:999px;padding:7px 14px}
+.toc a:hover{color:#fff;border-color:var(--gold)}
+
+/* seções */
+section.model{padding-block:56px 12px}
+.model-head{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+.model-head .eyebrow{color:var(--gold-deep);font-weight:400;letter-spacing:.3em}
+.model-head h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(1.8rem,4.6vw,2.3rem);line-height:1.15;margin:6px 0 8px;color:#1A1612}
+.model-head p{margin:0;color:var(--muted);font-size:.95rem}
+.when{display:flex;gap:10px;align-items:flex-start;background:var(--beige);border-radius:10px;padding:13px 16px;margin-bottom:26px;font-size:.93rem;color:#4E463A}
+.when b{color:#1A1612}
+
+.msg{margin-bottom:26px}
+.msg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.tag{background:var(--ink2);color:#EDE6D8;font-family:'Cormorant Garamond',Georgia,serif;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;padding:5px 14px;border-radius:5px}
+.copy{display:inline-flex;align-items:center;gap:7px;background:var(--paper);border:1px solid var(--line);color:var(--gold-deep);font:700 .82rem 'Lato',sans-serif;padding:7px 13px;border-radius:8px;cursor:pointer}
+.copy:hover{border-color:var(--gold)}
+.copy svg{width:15px;height:15px}
+.copy.ok{color:#2E7D4F;border-color:#9FCBB0}
+.bubble{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:20px 22px;font-size:.97rem}
+.bubble p{margin:0 0 14px}
+.bubble p:last-child{margin-bottom:0}
+.bubble .step b{color:var(--gold-deep)}
+
+/* guia */
+.guide{padding-block:56px 40px}
+.tips{display:grid;gap:12px;counter-reset:tip}
+.tip{display:grid;grid-template-columns:34px 1fr;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.tip .n{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;color:var(--gold);line-height:1}
+.tip h3{margin:0 0 4px;font-size:1rem;color:#1A1612}
+.tip p{margin:0;color:var(--muted);font-size:.93rem}
+.brackets{background:var(--ink2);color:#E8E1D3;border-radius:10px;padding:20px 22px;margin-top:22px;font-size:.93rem}
+.brackets h3{margin:0 0 10px;color:var(--gold);font-size:.95rem}
+.brackets p{margin:0 0 6px}
+.brackets p:last-child{margin:0}
+
+footer{border-top:1px solid var(--line);padding-block:26px calc(34px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
+footer a{color:var(--gold-deep);font-weight:700;text-decoration:none}
+
+@media(max-width:520px){
+  .bubble{padding:18px 16px}
+  .tip{padding:16px}
+  .btn{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <span class="eyebrow">Material interno · Inframe Instax</span>
+    <h1>Roteiros de Prospecção<br>Parceria de Portfólio</h1>
+    <div class="rule"></div>
+    <p>Três abordagens prontas para uso em WhatsApp, Direct e resposta de stories, criadas para apresentar a experiência Inframe a noivas selecionadas para produção de portfólio.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="roteiros-prospeccao-inframe.pdf" download="Roteiros de Prospeccao - Inframe Instax.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Baixar PDF
+      </a>
+      <a class="btn btn-ghost" href="#guia">Como usar os roteiros</a>
+    </div>
+    <nav class="toc" aria-label="Modelos">
+      <a href="#modelo-01">01 · Primeira abordagem completa</a>
+      <a href="#modelo-02">02 · Abordagem direta</a>
+      <a href="#modelo-03">03 · Abordagem para conhecidas</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="model" id="modelo-01">
+  <div class="wrap">
+    <div class="model-head">
+      <span class="eyebrow serif">Modelo 01</span>
+      <h2>Primeira Abordagem Completa</h2>
+      <p>Ideal para o primeiro contato direto, quando você já tem o número da noiva e quer apresentar a proposta com mais contexto antes de aprofundar.</p>
+    </div>
+
+    <div class="msg">
+      <div class="msg-top"><span class="tag">Mensagem 1</span><button class="copy" type="button">Copiar</button></div>
+      <div class="bubble">
+        <p>Oii, [Nome da Noiva]! Tudo bem? Parabéns pelo noivado! ✨</p>
+        <p>Sou da [Nome da sua Marca] e ajudamos noivos a levarem para casa, na própria noite do casamento, a primeira memória física e tangível do grande dia: um álbum de recados feito em fotos instantâneas estilo Polaroid, com as fotos e mensagens de quem mais ama vocês.</p>
+        <p>Estamos selecionando apenas 1 casamento desta data para nosso portfólio oficial. Oferecemos a experiência a preço de custo do material, em troca da autorização de uso de imagem das fotos nas nossas redes.</p>
+        <p>Você já definiu como quer guardar as memórias afetivas dos seus convidados ou quer dar uma olhada em como funciona essa oportunidade?</p>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="msg-top"><span class="tag">Mensagem 2</span><button class="copy" type="button">Copiar</button></div>
+      <div class="bubble">
+        <p>Que ótimo, [Nome da Noiva]! Vou te explicar exatamente como entregamos essa experiência no seu grande dia:</p>
+        <p class="step"><b>1. Estrutura Impecável e Pontual:</b> No dia do evento, chegamos com antecedência, muito antes dos primeiros convidados entrarem, para deixar toda a nossa estação montada e alinhada com a decoração da sua festa. Nós levamos todos os equipamentos necessários, sem que você precise se preocupar com nenhum detalhe logístico.</p>
+        <p class="step"><b>2. Equipamentos Originais e Alta Qualidade:</b> Trabalhamos exclusivamente com câmeras e insumos originais da Fujifilm. Cada foto Polaroid é revelada na hora com extrema qualidade, nitidez e cores vivas, garantindo que a imagem não desbotará com o passar dos anos.</p>
+        <p class="step"><b>3. O Livro de Memórias Vivo:</b> Durante a festa, o seu álbum vai sendo construído em tempo real. Os seus convidados tiram as fotos Polaroid, colam uma via no seu Guestbook Personalizado e escrevem mensagens de próprio punho (e claro, eles também levam uma Polaroid como lembrança para casa).</p>
+        <p class="step"><b>4. Registros para a Lua de Mel:</b> Enquanto a cobertura do fotógrafo tradicional leva semanas para ser entregue, o nosso serviço garante o seu primeiro registro físico em mãos. Antes da festa acabar, nós te entregamos o álbum 100% pronto: é a memória tangível e emocionante que vocês já levam direto para a lua de mel para lerem juntos.</p>
+        <p class="step"><b>5. Condição Especial de Portfólio:</b> Como o nosso objetivo é registrar a beleza do seu evento para o nosso portfólio oficial, você pagará exclusivamente o valor de custo dos materiais e papéis Fujifilm impressos na noite. Zeramos qualquer taxa de equipe, serviço ou equipamentos, alinhando apenas a autorização do uso de imagem por tempo indeterminado para as nossas redes.</p>
+        <p>Consigo te enviar um PDF curtinho para você ver o acabamento do álbum e a tabela exata do valor de custo para a sua data?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="model" id="modelo-02">
+  <div class="wrap">
+    <div class="model-head">
+      <span class="eyebrow serif">Modelo 02</span>
+      <h2>Abordagem Direta</h2>
+      <p>Versão mais enxuta, ideal para responder stories de noivas que você ainda não conhece pessoalmente, mantendo o tom leve e aberto ao diálogo.</p>
+    </div>
+    <div class="when"><span aria-hidden="true">💬</span><span><b>Quando usar:</b> resposta rápida em stories de preparativos de casamento (provas de vestido, ensaio, chá de panela).</span></div>
+
+    <div class="msg">
+      <div class="msg-top"><span class="tag">Mensagem 1</span><button class="copy" type="button">Copiar</button></div>
+      <div class="bubble">
+        <p>Nossa, vai ser incrível! 😍 Parabéns por essa fase!</p>
+        <p>Vi que você está nos preparativos e lembrei de uma oportunidade: estamos selecionando algumas noivas para uma parceria de portfólio de fotos polaroid no casamento, cobrando apenas o preço de custo do material (em troca do uso das imagens nas nossas redes).</p>
+        <p>Vocês já definiram como querem eternizar essas memórias do grande dia ou quer que eu te explique por aqui como funciona?</p>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="msg-top"><span class="tag">Mensagem 2</span><button class="copy" type="button">Copiar</button></div>
+      <div class="bubble">
+        <p>Que ótimo, [Nome da Noiva]! Funciona assim:</p>
+        <p>No dia do casamento, nossa equipe chega bem antes da festa e deixa a estação montada. Usamos câmeras e papéis originais da Fujifilm para garantir a máxima qualidade e durabilidade das fotos Polaroid. Durante o evento, os convidados tiram as fotos, colam uma via no seu Guestbook Personalizado e deixam um recado carinhoso: entregamos esse álbum 100% pronto antes da festa acabar, para vocês já levarem essa memória viva direto para a lua de mel!</p>
+        <p>Como é para o nosso portfólio, cobramos apenas o valor de custo de fábrica dos insumos Fujifilm (sem taxas de equipe ou equipamentos), alinhando a autorização de uso de imagem.</p>
+        <p>Posso te enviar um PDF curtinho de 1 página com o visual do álbum e os custos exatos para a sua data?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="model" id="modelo-03">
+  <div class="wrap">
+    <div class="model-head">
+      <span class="eyebrow serif">Modelo 03</span>
+      <h2>Abordagem para Conhecidas</h2>
+      <p>Para noivas que já estavam no seu radar ou com quem você já tem algum vínculo, retomando o contato de forma pessoal e afetiva.</p>
+    </div>
+    <div class="when"><span aria-hidden="true">💬</span><span><b>Quando usar:</b> conhecidas, ex-clientes indicadas, contatos de amigos em comum ou noivas que já seguem o perfil há um tempo.</span></div>
+
+    <div class="msg">
+      <div class="msg-top"><span class="tag">Mensagem 1</span><button class="copy" type="button">Copiar</button></div>
+      <div class="bubble">
+        <p>Oii, [Nome]! Tudo bem? Fiquei super feliz por você quando soube do casamento! ✨</p>
+        <p>Lembrei de você porque a gente está selecionando alguns casamentos para fazer uma parceria de portfólio da nossa empresa de fotos Polaroid originais. A ideia é que você leve para a lua de mel o seu primeiro registro do casamento pronto em mãos: um álbum de recados que os próprios convidados montam durante a festa com fotos e mensagens.</p>
+        <p>Como seria para o nosso portfólio, a gente faria a preço de custo dos materiais da Fujifilm (sem nossa taxa de serviço e equipe), em troca de poder usar as fotos no nosso feed.</p>
+        <p>Você já definiu essa parte do álbum de memórias ou quer que eu te mande rapidinho no WhatsApp como funciona?</p>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="msg-top"><span class="tag">Mensagem 2</span><button class="copy" type="button">Copiar</button></div>
+      <div class="bubble">
+        <p>Demais! É super prático: no dia do casamento a gente chega bem antes, monta a nossa estação e cuida de tudo. Usamos câmeras e papéis originais da Fujifilm para a foto ter máxima qualidade e durabilidade.</p>
+        <p>Os convidados tiram as Polaroids, colam no seu Guestbook Personalizado, deixam recados e a gente te entrega o álbum 100% pronto antes de a festa acabar. Aí você paga só o custo de fábrica das fotos impressas mesmo, sem taxa de equipe ou equipamento.</p>
+        <p>Posso te mandar por aqui um PDF bem curtinho de 1 página com as fotos de como fica a estrutura e os valores de custo para a sua data?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guide" id="guia">
+  <div class="wrap">
+    <div class="model-head">
+      <span class="eyebrow serif">Guia rápido</span>
+      <h2>Como Usar Estes Roteiros</h2>
+      <p>Boas práticas para manter o tom premium e afetivo da marca em cada conversa.</p>
+    </div>
+    <div class="tips">
+      <div class="tip"><span class="n">1</span><div><h3>Sempre personalize os colchetes</h3><p>Substitua [Nome da Noiva] e [Nome da sua Marca] antes de enviar. Uma mensagem genérica quebra a percepção premium.</p></div></div>
+      <div class="tip"><span class="n">2</span><div><h3>Respeite o intervalo entre as mensagens</h3><p>Envie a Mensagem 1 e aguarde a resposta da noiva antes de mandar a Mensagem 2. A explicação completa só entra depois do interesse confirmado.</p></div></div>
+      <div class="tip"><span class="n">3</span><div><h3>Escolha o modelo pelo canal e vínculo</h3><p>Modelo 01 para contato direto com contexto completo, Modelo 02 para resposta rápida em stories, Modelo 03 para conhecidas e indicações.</p></div></div>
+      <div class="tip"><span class="n">4</span><div><h3>Mantenha o tom acolhedor, nunca vendedor</h3><p>O convite é para uma conversa, não para um fechamento imediato. Deixe a noiva vir até você com perguntas.</p></div></div>
+      <div class="tip"><span class="n">5</span><div><h3>O PDF de fechamento vem depois</h3><p>As mensagens preparam o terreno. O material com fotos do acabamento e valores exatos é enviado só quando a noiva demonstrar interesse real.</p></div></div>
+    </div>
+    <div class="brackets">
+      <h3>Colchetes para preencher:</h3>
+      <p>[Nome da Noiva]: nome da cliente em potencial</p>
+      <p>[Nome da sua Marca]: Inframe Instax (usar apenas no Modelo 01, primeiro contato)</p>
+      <p>[Nome]: nome da conhecida (Modelo 03)</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Inframe Instax · Roteiros de Prospecção</span>
+    <a href="roteiros-prospeccao-inframe.pdf" download="Roteiros de Prospeccao - Inframe Instax.pdf">Baixar PDF</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.innerHTML=icon+'Copiar';
+    btn.addEventListener('click',function(){
+      var bubble=btn.closest('.msg').querySelector('.bubble');
+      var text=Array.prototype.map.call(bubble.querySelectorAll('p'),function(p){return p.innerText.trim();}).join('\n\n');
+      function done(){btn.classList.add('ok');btn.innerHTML=icon+'Copiado';setTimeout(function(){btn.classList.remove('ok');btn.innerHTML=icon+'Copiar';},1800);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+      function fallback(){var t=document.createElement('textarea');t.value=text;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+    });
+  });
+})();
+</script>
+</body>
+</html>
