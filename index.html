@@ -74,6 +74,8 @@ section.model{padding-block:56px 12px}
 .brackets h3{margin:0 0 10px;color:var(--gold);font-size:.95rem}
 .brackets p{margin:0 0 6px}
 .brackets p:last-child{margin:0}
+.cover .dl-hint{margin:14px 0 0;font-size:.85rem;color:var(--on-dark-muted);max-width:520px}
+.cover .dl-hint b{color:var(--gold)}
 
 footer{border-top:1px solid var(--line);padding-block:26px calc(34px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.85rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
@@ -111,12 +113,13 @@ footer a{color:var(--gold-deep);font-weight:700;text-decoration:none}
     <div class="rule"></div>
     <p>Três abordagens prontas para uso em WhatsApp, Direct e resposta de stories, criadas para apresentar a experiência Inframe a noivas selecionadas para produção de portfólio.</p>
     <div class="actions">
-      <a class="btn btn-gold" href="roteiros-prospeccao-inframe.pdf" download="Roteiros de Prospeccao - Inframe Instax.pdf">
+      <a class="btn btn-gold pdf-dl" href="roteiros-prospeccao-inframe.pdf" download="Roteiros de Prospeccao - Inframe Instax.pdf">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
         Baixar PDF
       </a>
       <a class="btn btn-ghost" href="#guia">Como usar os roteiros</a>
     </div>
+    <p class="dl-hint" id="dlHint" hidden></p>
     <nav class="toc" aria-label="Modelos">
       <a href="#modelo-01">01 · Primeira abordagem completa</a>
       <a href="#modelo-02">02 · Abordagem direta</a>
@@ -248,11 +251,43 @@ footer a{color:var(--gold-deep);font-weight:700;text-decoration:none}
 <footer>
   <div class="wrap">
     <span>Inframe Instax · Roteiros de Prospecção</span>
-    <a href="roteiros-prospeccao-inframe.pdf" download="Roteiros de Prospeccao - Inframe Instax.pdf">Baixar PDF</a>
+    <a class="pdf-dl" href="roteiros-prospeccao-inframe.pdf" download="Roteiros de Prospeccao - Inframe Instax.pdf">Baixar PDF</a>
   </div>
 </footer>
 
 <script>
+(function(){
+  var ua=navigator.userAgent||'';
+  var ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var inApp=/Instagram|FBAN|FBAV|FB_IAB|Line\/|WhatsApp/i.test(ua);
+  var hint=document.getElementById('dlHint');
+  if(inApp){
+    hint.innerHTML='Você está no navegador do app. Se o download não começar, toque em <b>⋯</b> e escolha <b>Abrir no navegador</b>.';
+    hint.hidden=false;
+  }else if(ios){
+    hint.innerHTML='No iPhone, se o PDF abrir na tela, toque em <b>Compartilhar</b> e depois em <b>Salvar em Arquivos</b>.';
+    hint.hidden=false;
+  }
+  var cache=null;
+  document.querySelectorAll('.pdf-dl').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(!window.fetch||!window.URL||!URL.createObjectURL)return;
+      e.preventDefault();
+      var name=a.getAttribute('download');
+      var go=function(blob){
+        var url=URL.createObjectURL(blob);
+        var t=document.createElement('a');
+        t.href=url;t.download=name;t.rel='noopener';
+        document.body.appendChild(t);t.click();document.body.removeChild(t);
+        setTimeout(function(){URL.revokeObjectURL(url);},60000);
+      };
+      if(cache){go(cache);return;}
+      fetch(a.href).then(function(r){if(!r.ok)throw 0;return r.blob();}).then(function(b){
+        cache=new Blob([b],{type:'application/octet-stream'});go(cache);
+      }).catch(function(){window.location.href=a.href;});
+    });
+  });
+})();
 (function(){
   var icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
   document.querySelectorAll('.copy').forEach(function(btn){
