@@ -85,6 +85,21 @@ footer a{color:var(--gold-deep);font-weight:700;text-decoration:none}
   .btn{width:100%;justify-content:center}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+@page{size:A4;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:10.5pt;background:var(--cream)}
+  .wrap{max-width:none;padding-inline:18mm}
+  .actions,.toc,.copy,footer{display:none!important}
+  .cover{height:297mm;display:flex;flex-direction:column;justify-content:center;padding-block:0;break-after:page}
+  .cover h1{font-size:34pt}
+  section.model,section.guide{break-before:page;padding-block:16mm 10mm}
+  .msg,.tip,.brackets{break-inside:avoid}
+  .msg-top{margin-bottom:6px}
+  .bubble{padding:14px 18px}
+  .bubble p{margin-bottom:9px}
+}
 </style>
 </head>
 <body>
@@ -135,7 +150,7 @@ footer a{color:var(--gold-deep);font-weight:700;text-decoration:none}
       <div class="bubble">
         <p>Que ótimo, [Nome da Noiva]! Vou te explicar exatamente como entregamos essa experiência no seu grande dia:</p>
         <p class="step"><b>1. Estrutura Impecável e Pontual:</b> No dia do evento, chegamos com antecedência, muito antes dos primeiros convidados entrarem, para deixar toda a nossa estação montada e alinhada com a decoração da sua festa. Nós levamos todos os equipamentos necessários, sem que você precise se preocupar com nenhum detalhe logístico.</p>
-        <p class="step"><b>2. Equipamentos Originais e Alta Qualidade:</b> Trabalhamos exclusivamente com câmeras e insumos originais da Fujifilm. Cada foto Polaroid é revelada na hora com extrema qualidade, nitidez e cores vivas, garantindo que a imagem não desbotará com o passar dos anos.</p>
+        <p class="step"><b>2. Equipamentos Originais e Alta Qualidade:</b> Trabalhamos exclusivamente com câmeras e insumos originais da Fujifilm. Cada foto Polaroid é revelada na hora com extrema qualidade, nitidez e cores vivas. São fotos feitas para durar muitos anos, guardadas com cuidado.</p>
         <p class="step"><b>3. O Livro de Memórias Vivo:</b> Durante a festa, o seu álbum vai sendo construído em tempo real. Os seus convidados tiram as fotos Polaroid, colam uma via no seu Guestbook Personalizado e escrevem mensagens de próprio punho (e claro, eles também levam uma Polaroid como lembrança para casa).</p>
         <p class="step"><b>4. Registros para a Lua de Mel:</b> Enquanto a cobertura do fotógrafo tradicional leva semanas para ser entregue, o nosso serviço garante o seu primeiro registro físico em mãos. Antes da festa acabar, nós te entregamos o álbum 100% pronto: é a memória tangível e emocionante que vocês já levam direto para a lua de mel para lerem juntos.</p>
         <p class="step"><b>5. Condição Especial de Portfólio:</b> Como o nosso objetivo é registrar a beleza do seu evento para o nosso portfólio oficial, você pagará exclusivamente o valor de custo dos materiais e papéis Fujifilm impressos na noite. Zeramos qualquer taxa de equipe, serviço ou equipamentos, alinhando apenas a autorização do uso de imagem por tempo indeterminado para as nossas redes.</p>
